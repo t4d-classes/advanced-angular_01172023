@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ColorHomeComponent } from './components/color-home/color-home.component';
+import { SharedLibModule } from 'shared-lib';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { ColorHomeComponent } from './components/color-home/color-home.component
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedLibModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

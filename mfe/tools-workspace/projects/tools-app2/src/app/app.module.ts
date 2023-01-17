@@ -1,20 +1,18 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CarHomeComponent } from './components/car-home/car-home.component';
-import { SharedLibModule } from 'shared-lib';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarHomeComponent
+    HomeComponent
   ],
   imports: [
-    CommonModule,
-    AppRoutingModule,
-    SharedLibModule,
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
