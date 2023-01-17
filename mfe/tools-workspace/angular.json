@@ -1,0 +1,313 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"tools-app": {
+			"projectType": "application",
+			"schematics": {},
+			"root": "projects/tools-app",
+			"sourceRoot": "projects/tools-app/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/tools-app",
+						"index": "projects/tools-app/src/index.html",
+						"main": "projects/tools-app/src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/tools-app/tsconfig.app.json",
+						"assets": [
+							"projects/tools-app/src/favicon.ico",
+							"projects/tools-app/src/assets"
+						],
+						"styles": [
+							"projects/tools-app/src/styles.css"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/tools-app/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/tools-app/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "tools-app:build:production",
+							"extraWebpackConfig": "projects/tools-app/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "tools-app:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4200,
+						"publicHost": "http://localhost:4200",
+						"extraWebpackConfig": "projects/tools-app/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "tools-app:build",
+						"extraWebpackConfig": "projects/tools-app/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/tools-app/tsconfig.spec.json",
+						"assets": [
+							"projects/tools-app/src/favicon.ico",
+							"projects/tools-app/src/assets"
+						],
+						"styles": [
+							"projects/tools-app/src/styles.css"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"color-tool": {
+			"projectType": "application",
+			"schematics": {},
+			"root": "projects/color-tool",
+			"sourceRoot": "projects/color-tool/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/color-tool",
+						"index": "projects/color-tool/src/index.html",
+						"main": "projects/color-tool/src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/color-tool/tsconfig.app.json",
+						"assets": [
+							"projects/color-tool/src/favicon.ico",
+							"projects/color-tool/src/assets"
+						],
+						"styles": [
+							"projects/color-tool/src/styles.css"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/color-tool/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/color-tool/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "color-tool:build:production",
+							"extraWebpackConfig": "projects/color-tool/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "color-tool:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4201,
+						"publicHost": "http://localhost:4201",
+						"extraWebpackConfig": "projects/color-tool/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "color-tool:build",
+						"extraWebpackConfig": "projects/color-tool/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/color-tool/tsconfig.spec.json",
+						"assets": [
+							"projects/color-tool/src/favicon.ico",
+							"projects/color-tool/src/assets"
+						],
+						"styles": [
+							"projects/color-tool/src/styles.css"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"car-tool": {
+			"projectType": "application",
+			"schematics": {},
+			"root": "projects/car-tool",
+			"sourceRoot": "projects/car-tool/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/car-tool",
+						"index": "projects/car-tool/src/index.html",
+						"main": "projects/car-tool/src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/car-tool/tsconfig.app.json",
+						"assets": [
+							"projects/car-tool/src/favicon.ico",
+							"projects/car-tool/src/assets"
+						],
+						"styles": [
+							"projects/car-tool/src/styles.css"
+						],
+						"scripts": [],
+						"extraWebpackConfig": "projects/car-tool/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/car-tool/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "car-tool:build:production",
+							"extraWebpackConfig": "projects/car-tool/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "car-tool:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4202,
+						"publicHost": "http://localhost:4202",
+						"extraWebpackConfig": "projects/car-tool/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "car-tool:build",
+						"extraWebpackConfig": "projects/car-tool/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/car-tool/tsconfig.spec.json",
+						"assets": [
+							"projects/car-tool/src/favicon.ico",
+							"projects/car-tool/src/assets"
+						],
+						"styles": [
+							"projects/car-tool/src/styles.css"
+						],
+						"scripts": []
+					}
+				}
+			}
+		}
+	},
+	"cli": {
+		"analytics": "e5dc9b7c-d044-4b9b-aa28-c9f010dc9763"
+	}
+}
