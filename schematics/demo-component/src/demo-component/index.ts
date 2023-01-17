@@ -2,7 +2,8 @@
 import { join, normalize } from 'path';
 
 import {
-  Rule, SchematicContext, Tree, SchematicsException
+  Rule, SchematicContext, Tree, SchematicsException,
+  apply, chain, MergeStrategy, mergeWith, move, url, template
 } from '@angular-devkit/schematics';
 
 
@@ -37,7 +38,14 @@ export function demoComponent(_options: DemoComponentOptions): Rule {
 
     await configureOptions(_options, tree);
 
+    const movePath = normalize(_options.path + "/");
+    const templateSource = apply(url('./files/src'), [
+      template({..._options}),
+      move(movePath)
+    ]);
 
-    return tree;
+
+
+    return chain([mergeWith(templateSource, MergeStrategy.Overwrite)]);
   };
 }
